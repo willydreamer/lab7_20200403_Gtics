@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:fragment="header">
+    <<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Gtics F</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
 </head>
 <body>
 <div th:fragment="navbar">
@@ -20,10 +24,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbar-app">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/sitios/lista}">Sitios</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/equipos/lista}"> Equipos</a>
+                    <a class="nav-link" th:href="@{/tecnicos/lista}">Tecnicos</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/estadisticas/lista}"> Estadisticas</a>

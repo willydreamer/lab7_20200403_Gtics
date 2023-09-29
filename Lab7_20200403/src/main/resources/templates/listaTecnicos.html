@@ -1,0 +1,50 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <head th:replace="~{fragments/navbar.html :: header}"></head>
+</head>
+<body>
+<div class="main">
+  <div th:insert="~{fragments/navbar.html :: navbar}"></div>
+</div>
+<main>
+  <!-- Contenido -->
+  <div class="page-header text-center">
+    <h1>Lista Tecnicos</h1>
+  </div>
+  <div class="container px-4 py-5">
+<!--    <div class="alert alert-danger" role="alert" th:if="${msg != null}" th:text="${msg}">-->
+<!--      A simple primary alert—check it out!-->
+<!--    </div>-->
+    <div class="container-fluid">
+      <a class="btn btn-primary mt-4 mb-4" th:href="@{/tecnicos/new}">Nuevo Tecnico</a>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+        <th>Phone</th>
+        <th>Edad</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="tecnico, info : ${listaTecnicos}">
+        <td th:text="${tecnico.firstName}"></td>
+        <td th:text="${tecnico.lastName}"></td>
+        <td th:text="${tecnico.dni}"></td>
+        <td th:text="${tecnico.phone}"></td>
+        <td th:text="${tecnico.age}"></td>
+
+        <td><a class="btn btn-primary" th:href="@{'/tecnicos/edit?id=' + ${tecnico.id}}">Editar</a></td>
+        <td><a class="btn btn-danger"
+               th:href="@{'/tecnicos/delete?id=' + ${tecnico.id}}">Borrar</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</body>
+</html>

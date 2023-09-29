@@ -1,0 +1,37 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="~{fragments/navbar.html :: header}"></head>
+</head>
+<body>
+<div class="main">
+    <div th:insert="~{fragments/navbar.html :: navbar}"></div>
+</div>
+<main>
+    <!-- Contenido -->
+    <div class="page-header text-center">
+        <h1>Estadisticas - Equipos</h1>
+    </div>
+    <div class="container px-4 py-5">
+        <!--    <div class="alert alert-danger" role="alert" th:if="${msg != null}" th:text="${msg}">-->
+        <!--      A simple primary alert—check it out!-->
+        <!--    </div>-->
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Pais</th>
+                <th>Cantidad</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="esta, info : ${estadisticas}">
+                <td th:text="${esta.getCountry()}"></td>
+                <td th:text="${esta.getNumero()}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>
